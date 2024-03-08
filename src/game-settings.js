@@ -1,4 +1,3 @@
-import { betChoices } from "./constants";
 
 export default {
     id: 75,
@@ -8,8 +7,8 @@ export default {
         placingBets: 25,
         lockingBet: 3,
     },
-    choices: ["home", "away", "tie"],
+    choices: ["home", "away", "draw"],
     choicesMapper: { home: 1, away: 2, tie: 3 },
-    hedgeBetGroups: [["home", "away"]],
+    hedgeBetGroups: [["home", "draw"]],
     numberOfRoundHistory: 100,
 };

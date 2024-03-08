@@ -6,7 +6,7 @@ const bet = {
 
     home: { type: Number, default: 0 },
     away: { type: Number, default: 0 },
-    tie: { type: Number, default: 0 },
+    draw: { type: Number, default: 0 },
 
     totalAmount: { type: Number, default: 0 },
     betwin: { type: Number, default: 0 },
@@ -33,3 +33,4 @@ const bets = mongoose.model(
 const tmpBets = mongoose.model("footballdice_tmpbets", new mongoose.Schema(bet));
 
 export { bets, tmpBets };
+
