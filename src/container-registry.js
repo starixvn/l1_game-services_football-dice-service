@@ -1,24 +1,21 @@
 import awilix from "awilix";
-import { Table, Core } from "sc-game-base";
-import { SettleGameRoundConsumer, PlaceBetConsumer } from "./consumers";
+import { Table } from "sc-game-base";
 import { bets, rounds, tmpBets, results, betLogs } from "./models/index";
-import { Bot } from "./crons/index";
-import { RebetContainerRegistry, Crons } from "sc-rebet-mode";
-import HistoryQuery from "./query-apis/history-query";
 
 const { asClass, asValue } = awilix;
 
 export default class ContainerRegistry extends Table.TableContainerRegistry {
     register(appConfigs, definition, gameData) {
         super.register(appConfigs, definition, gameData);
-
-        this.container.register(new RebetContainerRegistry().registerTableGame(Core.Routers.BaseSocketRouter));
-        this.container.register({
-            processBetQueue: asClass(Crons.TableProcessBetQueueSeparateBetLog).singleton().proxy(),
-        });
-
+        this.registerPFSettings();
 
         return this.container;
+    }
+
+    registerPFSettings() {
+        this.container.register({
+            maxCombinedClientSeeds: asValue(5),
+        });
     }
 
     registerModels() {
@@ -32,30 +29,4 @@ export default class ContainerRegistry extends Table.TableContainerRegistry {
             resultsRepository: asValue(results),
         });
     }
-
-    registerConsumers() {
-        super.registerConsumers();
-
-        this.container.register({
-            placeBetConsumer: asClass(PlaceBetConsumer).singleton(),
-            settleGameRoundConsumer: asClass(SettleGameRoundConsumer).singleton().proxy(),
-        });
-    }
-
-    registerCrons() {
-        super.registerCrons();
-
-        this.container.register({
-            bot: asClass(Bot).singleton(),
-        });
-    }
-
-    registerApis() {
-        super.registerApis();
-
-        this.container.register({
-            historyQuery: asClass(HistoryQuery).singleton(),
-        });
-    }
-
 }

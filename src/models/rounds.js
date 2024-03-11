@@ -4,17 +4,17 @@ const modelName = "footballdice_rounds";
 
 const resultSchema = new mongoose.Schema(
     {
-        home: { type: Number },
-        away: { type: Number },
+        home: { type: Array },
+        away: { type: Array },
     },
     { _id: false }
 );
 
 const settlementResultSchema = new mongoose.Schema(
     {
-        home: { type: Number },
-        away: { type: Number },
-        tie: { type: Number },
+        home: { type: Boolean },
+        away: { type: Boolean },
+        tie: { type: Boolean },
     },
     { _id: false }
 );

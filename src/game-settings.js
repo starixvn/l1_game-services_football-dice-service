@@ -1,4 +1,3 @@
-
 export default {
     id: 75,
     name: "footballdice",
@@ -7,8 +6,8 @@ export default {
         placingBets: 25,
         lockingBet: 3,
     },
-    choices: ["home", "away", "draw"],
+    choices: ["home", "away", "tie"],
     choicesMapper: { home: 1, away: 2, tie: 3 },
-    hedgeBetGroups: [["home", "draw"]],
+    hedgeBetGroups: [["home", "away"]],
     numberOfRoundHistory: 100,
 };

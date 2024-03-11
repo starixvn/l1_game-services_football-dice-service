@@ -2,8 +2,8 @@ export default {
     hostingPort: 8087,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "https://api.lumigame.com",
-        authUrl: "https://auth.lumigame.com",
+        apiUrl: "https://l1-api1.lumigame.com",
+        authUrl: "https://l1-auth1.lumigame.com",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -38,11 +38,11 @@ export default {
         env: "LOCAL",
     },
     authenticateSettings: {
-        url: "https://auth.lumigame.com",
+        url: "https://l1-auth1.lumigame.com",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
-        useAuthenticate: false,
+        useAuthenticate: true,
         audiences: ["api", "admin-api"],
     },
     userServiceSettings: {
