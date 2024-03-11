@@ -14,7 +14,7 @@ const settlementResultSchema = new mongoose.Schema(
     {
         home: { type: Boolean },
         away: { type: Boolean },
-        tie: { type: Boolean },
+        draw: { type: Boolean },
     },
     { _id: false }
 );

@@ -3,11 +3,10 @@ import Chance from "chance";
 const chance = new Chance();
 
 const generateResult = (finalHash) => {
-    return chance.pickone([
-        { home: [5, 4], away: [2, 3] },
-        { home: [4, 2], away: [3, 3] },
-        { home: [1, 1], away: [6, 5] },
-    ]);
+    return {
+        home: [chance.integer({ min: 1, max: 6 }, chance.integer({ min: 1, max: 6 }))],
+        away: [chance.integer({ min: 1, max: 6 }, chance.integer({ min: 1, max: 6 }))],
+    };
 };
 
 const getSettlementResult = (result) => {
