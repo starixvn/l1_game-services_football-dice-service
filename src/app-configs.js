@@ -14,7 +14,7 @@ export default {
         enabledApiLogs: true,
     },
     gameManagementApiSettings: {
-        BASE: "https://l1-proxy.lumigame.com/game-management-service",
+        BASE: "https://l1-proxy1.lumigame.com/game-management-service",
     },
     socketOptions: {
         pingInterval: 60 * 1000,
@@ -38,7 +38,7 @@ export default {
         env: "LOCAL",
     },
     authenticateSettings: {
-        url: "https://l1-auth1.lumigame.com",
+        url: "https://l1-auth1.lumigame.com/",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
