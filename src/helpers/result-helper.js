@@ -4,8 +4,8 @@ const chance = new Chance();
 
 const generateResult = (finalHash) => {
     return {
-        home: [chance.integer({ min: 1, max: 6 }, chance.integer({ min: 1, max: 6 }))],
-        away: [chance.integer({ min: 1, max: 6 }, chance.integer({ min: 1, max: 6 }))],
+        home: [chance.integer({ min: 1, max: 6 }), chance.integer({ min: 1, max: 6 })],
+        away: [chance.integer({ min: 1, max: 6 }), chance.integer({ min: 1, max: 6 })],
     };
 };
 
