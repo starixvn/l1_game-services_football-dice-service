@@ -10,8 +10,9 @@ const generateResult = (finalHash) => {
 };
 
 const getSettlementResult = (result) => {
-    const homeVal = result.home[0] + result.home[1];
-    const awayVal = result.away[0] + result.away[1];
+    const { home, away } = result;
+    const homeVal = home[0] + home[1];
+    const awayVal = away[0] + away[1];
 
     return {
         home: homeVal > awayVal,

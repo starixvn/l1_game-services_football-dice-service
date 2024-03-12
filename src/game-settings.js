@@ -1,5 +1,5 @@
 export default {
-    id: 75,
+    id: 78,
     name: "footballdice",
     durations: {
         wholeRound: 36,
