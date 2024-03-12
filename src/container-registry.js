@@ -1,6 +1,7 @@
 import awilix from "awilix";
 import { Table } from "sc-game-base";
 import { bets, rounds, tmpBets, results, betLogs } from "./models/index";
+import HttpRouter from "./routers/http-router";
 
 const { asClass, asValue } = awilix;
 
@@ -27,6 +28,14 @@ export default class ContainerRegistry extends Table.TableContainerRegistry {
             tempBetsRepository: asValue(tmpBets),
             betLogsRepository: asValue(betLogs),
             resultsRepository: asValue(results),
+        });
+    }
+
+    registerRouters() {
+        super.registerRouters();
+
+        this.container.register({
+            httpRouter: asClass(HttpRouter),
         });
     }
 }
