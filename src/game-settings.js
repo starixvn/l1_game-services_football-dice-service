@@ -6,8 +6,8 @@ export default {
         placingBets: 25,
         lockingBet: 3,
     },
-    choices: ["home", "away", "tie"],
-    choicesMapper: { home: 1, away: 2, tie: 3 },
+    choices: ["home", "away", "draw"],
+    choicesMapper: { home: 1, away: 2, draw: 3 },
     hedgeBetGroups: [["home", "away"]],
     numberOfRoundHistory: 100,
 };
