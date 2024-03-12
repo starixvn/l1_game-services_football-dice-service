@@ -1,6 +1,6 @@
 export default {
     id: 78,
-    name: "footballdice",
+    name: "FootballDice",
     durations: {
         wholeRound: 36,
         placingBets: 25,
