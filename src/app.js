@@ -5,10 +5,11 @@ startTrace(appConfigs.otel?.enabled, appConfigs.otel?.endpoint, appConfigs.otel?
 import { Core, Table } from "sc-game-base";
 import ContainerRegistry from "./container-registry";
 import { generateResult, getSettlementResult } from "./helpers/result-helper";
+import GameData from "./game-data";
 
 const run = async () => {
     const definition = new Table.TableGameDefinition(gameSettings, generateResult, getSettlementResult);
-    const gameData = new Table.TableGameData(gameSettings.durations.wholeRound);
+    const gameData = new GameData(gameSettings.durations.wholeRound);
 
     const container = new ContainerRegistry().register(appConfigs, definition, gameData);
     const app = new Core.BaseGameApp(gameSettings.name, appConfigs);

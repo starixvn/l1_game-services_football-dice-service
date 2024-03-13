@@ -2,8 +2,8 @@ export default {
     id: 78,
     name: "FootballDice",
     durations: {
-        wholeRound: 36,
-        placingBets: 25,
+        wholeRound: 38,
+        placingBets: 23,
         lockingBet: 3,
     },
     choices: ["home", "away", "draw"],
