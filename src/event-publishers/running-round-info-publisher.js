@@ -18,10 +18,10 @@ export class RunningRoundInfoPublisher extends Core.BaseEventPublishers.RunningR
     }
 
     calculateBetPercentage(betCount) {
-        const totalBetCount = Object.values(betCount).reduce((accumulator, currentValue) => accumulator + currentValue);
+        const totalBetCount = Object.values(betCount).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-        const home = parseInt((betCount.home * 100) / totalBetCount);
-        const draw = parseInt((betCount.draw * 100) / totalBetCount);
+        const home = parseInt(((betCount.home ?? 0) * 100) / totalBetCount);
+        const draw = parseInt(((betCount.draw ?? 0) * 100) / totalBetCount);
         const away = 100 - home - draw;
 
         return { home, draw, away };
