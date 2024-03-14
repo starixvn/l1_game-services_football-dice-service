@@ -12,8 +12,8 @@ export class RunningRoundInfoPublisher extends Core.BaseEventPublishers.RunningR
         const choices = Object.keys(betCount);
 
         if (choices.length) {
-            const betPercentage = this.calculateBetPercentage(betCount);
-            this.publishToAllUsers({ betPercentage });
+            const userBetPercentage = this.calculateBetPercentage(betCount);
+            this.publishToAllUsers({ userBetPercentage });
         }
     }
 

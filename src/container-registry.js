@@ -2,9 +2,8 @@ import awilix from "awilix";
 import { Table } from "sc-game-base";
 import { bets, rounds, tmpBets, results, betLogs } from "./models/index";
 import HttpRouter from "./routers/http-router";
-import GameCron from "./crons/game-cron";
-import ProcessBetQueue from "./crons/process-bet-queue";
 import { RunningRoundInfoPublisher } from "./event-publishers/running-round-info-publisher";
+import { Bot, GameCron, ProcessBetQueue } from "./crons";
 
 const { asClass, asValue } = awilix;
 
@@ -48,6 +47,7 @@ export default class ContainerRegistry extends Table.TableContainerRegistry {
         this.container.register({
             gameCron: asClass(GameCron).singleton().proxy(),
             processBetQueue: asClass(ProcessBetQueue).singleton().proxy(),
+            bot: asClass(Bot).singleton(),
         });
     }
 
