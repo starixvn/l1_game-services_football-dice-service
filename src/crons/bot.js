@@ -1,5 +1,6 @@
 import { Table } from "sc-game-base";
 import Chance from "chance";
+import { botChips } from "../constants";
 
 export default class Bot extends Table.Crons.TableGameBot {
     constructor(definition, gameData, publisher, gameManagementApiClientFactory, tempBetsRepository, provablyFairConsumer) {
@@ -43,5 +44,11 @@ export default class Bot extends Table.Crons.TableGameBot {
         const weights = this.maxBetStrategy.map((setting) => setting.weight);
 
         return this.chance.weighted(this.maxBetStrategy, weights).getMaxBet(minBet, maxBet);
+    }
+
+    convertAmountToChip(amount) {
+        const chipList = botChips.filter((chip) => amount / chip >= 1);
+
+        return chipList.length > 0 ? chipList[0] : this.getMinBet();
     }
 }
