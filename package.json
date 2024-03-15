@@ -18,7 +18,7 @@
         "dev": "nodemon --es-module-specifier-resolution=node --watch ./src ./src/app.js",
         "debug": "nodemon --es-module-specifier-resolution=node --watch ./ --inspect ./src/app.js",
         "prod": "node --max-old-space-size=8192 --es-module-specifier-resolution=node ./src/app.js",
-        "statistic": "node --max-old-space-size=8192 --es-module-specifier-resolution=node ./src/statistic.js",
+        "stats": "nodemon --es-module-specifier-resolution=node --watch ./tests ./tests/rtp/index.js",
         "reg": "npm set registry http://npm.lumigame.com"
     },
     "jestSonar": {
@@ -27,10 +27,7 @@
         "indent": 4
     },
     "dependencies": {
-        "sc-game-base": "5.0.1-beta.6"
-    },
-    "resolutions": {
-        "sc-game-base": "5.0.1-beta.6"
+        "sc-game-base": "5.0.1-beta.8"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.12.11",

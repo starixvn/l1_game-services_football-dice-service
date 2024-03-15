@@ -7136,6 +7136,14 @@ sc-base-apis@2.0.0:
     sc-api-client "1.4.0"
     sc-common "1.8.1"
 
+sc-base-database@1.11.1:
+  version "1.11.1"
+  resolved "http://npm.lumigame.com/sc-base-database/-/sc-base-database-1.11.1.tgz#25d850e83b4e07f7e6e26f3d2d1eecc11145c2cf"
+  integrity sha512-DxuFRNDDSHQglSGFsXnrcDXVs+BRxSiILBNRbJ5RistCcSbs+k7QiwYMGhCSv3FOz9J/On9jh2y3MNst/he2BA==
+  dependencies:
+    mongoose "^5.9.25"
+    sc-common "1.8.1"
+
 sc-common@1.8.1:
   version "1.8.1"
   resolved "http://npm.lumigame.com/sc-common/-/sc-common-1.8.1.tgz"
@@ -7147,10 +7155,36 @@ sc-common@1.8.1:
     mongoose-long "^0.3.0"
     numeral "^2.0.6"
 
-sc-game-base@5.0.0, sc-game-base@5.0.1-beta.6:
-  version "5.0.1-beta.6"
-  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.0.1-beta.6.tgz#8ea3ad525746abd0d3f4aa46166c91570fc9fe21"
-  integrity sha512-SLDqfw4MtSkWjKhSZssI/mwT1SRCk522hqkbbZE+rJHG6aWCCH1ua6kb5GEnUN+fmq3cGDrN2kpma+AU82Re2A==
+sc-game-base@5.0.0:
+  version "5.0.0"
+  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.0.0.tgz#f4051db11140bf6478ec868b9fc4a1f51d267e5f"
+  integrity sha512-ldUaY6w0TmSJ8+WOqq088zPxDpsRa6ErPW/BlWwnTTWGd3/vFJg0GSN6G/j88LV82uv2FPcG9T+aakq3mRGirg==
+  dependencies:
+    awilix "^8.0.0"
+    axios "^1.0.0"
+    chance "^1.1.7"
+    cors "^2.8.5"
+    cron "^2.0.0"
+    express "^4.17.1"
+    helmet "^6.0.0"
+    lodash "^4.17.19"
+    mongoose "^5.9.25"
+    morgan "^1.10.0"
+    openid-client "^5.0.0"
+    sc-base-apis "2.0.0"
+    sc-base-database "1.11.1"
+    sc-common "1.8.1"
+    sc-game-management-client "^0.0.2-beta.22"
+    sc-instrument "1.1.1-beta.2"
+    sc-instrument-helper "1.0.0"
+    socket.io "^4.5.4"
+    socket.io-msgpack-parser "^3.0.1"
+    socket.io-prom-metrics "^1.0.3"
+
+sc-game-base@5.0.1-beta.8:
+  version "5.0.1-beta.8"
+  resolved "http://npm.lumigame.com/sc-game-base/-/sc-game-base-5.0.1-beta.8.tgz#ec060c00018f9f1dc9dafc440cc4f16b94160dfb"
+  integrity sha512-PggNvkvmyc62CYQpKyLSySKhwp3ITSXinz8COnjt726jjL0ttjQyOvPUCIFVWzVMh0noQwh1tiA0Sm2itjpvKA==
   dependencies:
     awilix "^8.0.0"
     axios "^1.0.0"
