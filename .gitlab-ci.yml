@@ -1,5 +1,5 @@
 variables:
-    SMOKE_PRODUCT_NAME: 75 
+    SMOKE_PRODUCT_NAME: 78 
     DOCKER_SLIM: enable
     ENABLE_NODEJS_INTEGRATION_TEST: 'true'
     NODEJS_INTEGRATION_TEST_IMAGE_VERSION: hub.lumigame.com/base/node:18.13
@@ -7,5 +7,5 @@ variables:
 
 include:
   - project: "ci/core-cicd"
-    ref: main
+    ref: runner_k8s
     file: "luminet.gitlab-ci.yml"
