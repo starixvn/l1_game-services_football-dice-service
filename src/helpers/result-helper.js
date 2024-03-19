@@ -1,10 +1,10 @@
 const MaxHexValue = parseInt("FFFFFFFF", 16);
 const MaxDiceVal = 6;
 
-function splitHexString(hexString) {
+function splitHexString(hexString = "") {
     const substrings = [];
     for (let i = 0; i < hexString.length; i += 8) {
-        substrings.push(hexString.substr(i, 8));
+        substrings.push(hexString.substring(i, i + 8));
     }
     return substrings;
 }
