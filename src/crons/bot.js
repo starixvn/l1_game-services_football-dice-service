@@ -13,9 +13,9 @@ export default class Bot extends Table.Crons.TableGameBot {
         ];
 
         this.maxBetStrategy = [
-            { weight: 40, getMaxBet: (minBet, maxBet) => Math.min(minBet * 50, 0.3 * maxBet) },
-            { weight: 30, getMaxBet: (minBet, maxBet) => Math.min(minBet * 10, 0.3 * maxBet) },
-            { weight: 30, getMaxBet: (minBet, maxBet) => maxBet },
+            { weight: 60, getMaxBet: (minBet, maxBet) => Math.min(minBet * 10, 0.3 * maxBet) },
+            { weight: 30, getMaxBet: (minBet, maxBet) => Math.min(minBet * 50, 0.3 * maxBet) },
+            { weight: 20, getMaxBet: (minBet, maxBet) => maxBet },
         ];
 
         this.mainChoice = ["home", "away"];
