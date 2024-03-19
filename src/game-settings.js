@@ -4,10 +4,12 @@ export default {
     durations: {
         wholeRound: 38,
         placingBets: 23,
+        mergeClientSeeds: 0,
         lockingBet: 3,
     },
     choices: ["home", "away", "draw"],
     choicesMapper: { home: 1, away: 2, draw: 3 },
     hedgeBetGroups: [["home", "away"]],
     numberOfRoundHistory: 100,
+    provablyFair: true,
 };
