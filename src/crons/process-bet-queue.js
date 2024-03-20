@@ -7,6 +7,6 @@ export default class ProcessBetQueue extends Table.Crons.TableProcessBetQueue {
         const playerInGame = this.gameData.ingame[player.profile.name];
         const { betChoice } = bet;
 
-        this.gameData.betCount[betChoice] = playerInGame?.ownBets?.[betChoice] ? 0 : 1;
+        this.gameData.betCount[betChoice] += playerInGame?.ownBets?.[betChoice] ? 0 : 1;
     }
 }
