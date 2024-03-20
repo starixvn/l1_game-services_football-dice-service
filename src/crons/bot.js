@@ -51,4 +51,10 @@ export default class Bot extends Table.Crons.TableGameBot {
 
         return chipList.length > 0 ? chipList[0] : this.getMinBet();
     }
+
+    updateBotInRoomData(bot, choice, amount, balance) {
+        this.gameData.betCount[choice] += bot.betOnChoices?.[choice] ? 0 : 1;
+
+        super.updateBotInRoomData(bot, choice, amount, balance);
+    }
 }
