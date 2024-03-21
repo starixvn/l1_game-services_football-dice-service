@@ -3,7 +3,7 @@ export default {
     name: "FootballDice",
     durations: {
         wholeRound: 38,
-        placingBets: 23,
+        placingBets: 20,
         mergeClientSeeds: 0,
         lockingBet: 3,
     },
