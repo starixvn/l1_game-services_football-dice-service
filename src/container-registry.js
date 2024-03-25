@@ -4,7 +4,7 @@ import { bets, rounds, tmpBets, results, betLogs } from "./models/index";
 import HttpRouter from "./routers/http-router";
 import { RunningRoundInfoPublisher } from "./event-publishers/running-round-info-publisher";
 import { Bot, GameCron, ProcessBetQueue } from "./crons";
-import { PlaceBetConsumer, SettleGameRoundConsumer } from "./consumers";
+import { SettleGameRoundConsumer } from "./consumers";
 
 const { asClass, asValue } = awilix;
 
@@ -64,7 +64,6 @@ export default class ContainerRegistry extends Table.TableContainerRegistry {
         super.registerConsumers();
 
         this.container.register({
-            placeBetConsumer: asClass(PlaceBetConsumer).singleton(),
             settleGameRoundConsumer: asClass(SettleGameRoundConsumer).singleton().proxy(),
         });
     }
