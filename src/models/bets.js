@@ -20,6 +20,7 @@ const bet = {
     operatorId: { type: String },
     roundId: { type: Number, default: 0, required: true },
     paid: { type: Boolean, default: false },
+    clientSeed: { type: String },
 };
 
 const bets = mongoose.model(
