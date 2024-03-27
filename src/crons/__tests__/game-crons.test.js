@@ -14,8 +14,8 @@ describe("gameCrons", () => {
         expect(cron instanceof TableGameCron);
     });
 
-    describe("constructor", () => {
-        it("should call super", () => {
+    describe("resetForNewRound", () => {
+        it("should call super.resetForNewRound", () => {
             // Arrange
             spyOn(TableGameCron.prototype, "resetForNewRound");
             const cron = new GameCron({ gameData, gameManagementApiClientFactory });

@@ -19,7 +19,6 @@ export default class Bot extends Table.Crons.TableGameBot {
         ];
 
         this.mainChoice = ["home", "away"];
-        this.chance = new Chance();
     }
 
     getBetChoice(bot) {

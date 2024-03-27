@@ -29,6 +29,13 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
     let totalWinAmount = 0;
     let winCount = 0;
     let totalBetAmount = 0;
+    const winStreaks = {
+        home: {},
+        away: {},
+        draw: {},
+    };
+    let curChoice = "";
+    let curStreak = 0;
 
     for (let index = 0; index < numberOfRuns; index++) {
         const betAmount = chance.pickone([1, 5, 10, 50, 100]);
@@ -46,14 +53,25 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
             diceValStat[dice]++;
             diceStat[index][dice]++;
         });
-        settlementResult.away && resultStat.away++;
-        settlementResult.home && resultStat.home++;
-        settlementResult.draw && resultStat.draw++;
+
+        const winningChoice = Object.keys(settlementResult).find((choice) => settlementResult[choice]);
+        resultStat[winningChoice]++;
+
+        if (curChoice != winningChoice) {
+            if (curStreak >= 4)
+                winStreaks[curChoice][curStreak] = winStreaks[curChoice][curStreak] ? winStreaks[curChoice][curStreak] + 1 : 1;
+
+            curChoice = winningChoice;
+            curStreak = 1;
+        } else {
+            curStreak++;
+        }
     }
 
     console.log(diceStat);
     console.log(diceValStat);
     console.log(resultStat);
+    console.log(winStreaks);
 };
 
 exportRtpResult(1);
