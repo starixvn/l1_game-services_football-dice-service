@@ -26,7 +26,7 @@ export default class HttpRouter extends Table.Routers.TableHttpRouter {
 
             this.logService.logWarning(`receives a result cheating call with the result as ${JSON.stringify(params.result)}.`);
 
-            this.gameData.settlementResultFromAdmin = { result: params.result, roundId: params.roundId ?? this.gameData.roundId + 1 };
+            this.gameData.settlementResultFromAdmin = { result: params.result, roundId: params.roundId ?? this.gameData.roundId };
 
             res.send(true);
         } catch (error) {
