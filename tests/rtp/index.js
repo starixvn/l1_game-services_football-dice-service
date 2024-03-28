@@ -5,6 +5,14 @@ import Chance from "chance";
 
 const chance = new Chance();
 
+const betChoices = ["home", "away", "draw"];
+
+const odds = {
+    home: 1.95,
+    away: 1.95,
+    draw: 8.5,
+};
+
 const generateClientSeeds = () => {
     return [generateSeed(), generateSeed(), generateSeed(), generateSeed(), generateSeed()];
 };
@@ -39,6 +47,9 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
 
     for (let index = 0; index < numberOfRuns; index++) {
         const betAmount = chance.pickone([1, 5, 10, 50, 100]);
+        const choice = chance.weighted(betChoices, [45, 45, 10]);
+        //const choice = "away";
+        totalBetAmount += betAmount;
 
         const clientSeeds = generateClientSeeds();
         const serverSeed = ServerSeedHelper.generateServerSeed(randomMode);
@@ -57,6 +68,17 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
         const winningChoice = Object.keys(settlementResult).find((choice) => settlementResult[choice]);
         resultStat[winningChoice]++;
 
+        if (choice === winningChoice) {
+            const winAmount = odds[choice] * betAmount;
+
+            winCount++;
+            totalWinAmount += winAmount;
+        } else {
+            if (winningChoice == "draw") {
+                totalWinAmount += betAmount;
+            }
+        }
+
         if (curChoice != winningChoice) {
             if (curStreak >= 4)
                 winStreaks[curChoice][curStreak] = winStreaks[curChoice][curStreak] ? winStreaks[curChoice][curStreak] + 1 : 1;
@@ -68,10 +90,11 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
         }
     }
 
-    console.log(diceStat);
-    console.log(diceValStat);
-    console.log(resultStat);
-    console.log(winStreaks);
+    // console.log(diceStat);
+    // console.log(diceValStat);
+    // console.log(resultStat);
+    // console.log(winStreaks);
+    console.log({ rtp: totalWinAmount / totalBetAmount });
 };
 
 exportRtpResult(1);
