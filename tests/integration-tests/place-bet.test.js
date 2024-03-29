@@ -30,8 +30,7 @@ describe("place bet", () => {
             // Arrange
 
             const timeout = getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000;
-            console.log(inGameData.remainingTime);
-            console.log(timeout);
+
             // Act
             setTimeout(() => {
                 client.emit(eventTypes.bet, { betChoice: "home", amount: 100, clientSeed: "1000" });
@@ -47,8 +46,7 @@ describe("place bet", () => {
         it("should return own bet = -1", async () => {
             // Arrange
             const timeout = getTimeOutToPlacingBetTime(inGameData.remainingTime, gameSettings.durations) * 1000;
-            console.log(inGameData.remainingTime);
-            console.log(timeout);
+
             // Act
             setTimeout(() => {
                 client.emit(eventTypes.bet, { betChoice: "home", amount: 100 });
