@@ -21,6 +21,11 @@ const gameConfig = {
         away: 2000,
         draw: 500,
     },
+    maxBetPerChoices:{
+        home: 2000,
+        away: 2000,
+        draw: 500,
+    },
     odds: {
         home: 1.96,
         away: 1.96,
