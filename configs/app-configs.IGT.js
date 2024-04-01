@@ -1,5 +1,5 @@
 export default {
-    hostingPort: 8087,
+    hostingPort: 5001,
     apiSettings: {
         enabledApi: true,
         apiUrl: "http://l1_game_api_local:5000",
