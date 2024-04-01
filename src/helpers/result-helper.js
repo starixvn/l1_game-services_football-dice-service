@@ -1,4 +1,3 @@
-const MaxHexValue = parseInt("FFFFFFFF", 16);
 const MaxDiceVal = 6;
 
 function splitHexString(hexString = "") {
@@ -12,7 +11,7 @@ function splitHexString(hexString = "") {
 function randomDiceFromHex(hex) {
     const decimalVal = parseInt(hex, 16);
 
-    return Math.floor((decimalVal / MaxHexValue) * MaxDiceVal) + 1;
+    return Math.floor((decimalVal / 2 ** 32) * MaxDiceVal) + 1;
 }
 
 const generateResult = (finalHash) => {
@@ -36,4 +35,4 @@ const getSettlementResult = (result) => {
     };
 };
 
-export { generateResult, getSettlementResult };
+export { generateResult, getSettlementResult, splitHexString, randomDiceFromHex };

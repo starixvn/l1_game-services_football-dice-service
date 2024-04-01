@@ -12,8 +12,8 @@
     "type": "module",
     "scripts": {
         "dev-test": "jest",
-        "test": "jest --testPathPattern=tests/unit-tests/",
-        "test-coverage": "jest --collect-coverage --testPathPattern=tests/unit-tests/",
+        "test": "jest --testPathPattern=__tests__/",
+        "test-coverage": "jest --collect-coverage --testPathPattern=__tests__/",
         "integration-test": "jest --config ./jest.integration-test.config.cjs --testPathPattern=tests/integration-tests --reporters=default --reporters=jest-junit --runInBand",
         "dev": "nodemon --es-module-specifier-resolution=node --watch ./src ./src/app.js",
         "debug": "nodemon --es-module-specifier-resolution=node --watch ./ --inspect ./src/app.js",

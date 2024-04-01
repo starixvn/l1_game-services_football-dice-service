@@ -90,10 +90,10 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
         }
     }
 
-    // console.log(diceStat);
-    // console.log(diceValStat);
-    // console.log(resultStat);
-    // console.log(winStreaks);
+    console.log(diceStat);
+    console.log(diceValStat);
+    console.log(resultStat);
+    console.log(winStreaks);
     console.log({ rtp: totalWinAmount / totalBetAmount });
 };
 
