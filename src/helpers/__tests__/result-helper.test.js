@@ -18,7 +18,7 @@ describe("resultHelper", () => {
 
     describe("randomDiceFromHex", () => {
         test.each([
-            ["01234567", [1, 6]],
+            [chance.hash({ length: 8 }), [1, 6]],
             ["FFFFFFFF", [1, 6]],
             ["00000000", [1, 6]],
         ])("should return a random dice value from hex '%s'", (hex, expectedRange) => {
