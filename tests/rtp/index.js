@@ -8,8 +8,8 @@ const chance = new Chance();
 const betChoices = ["home", "away", "draw"];
 
 const odds = {
-    home: 1.95,
-    away: 1.95,
+    home: 1.96,
+    away: 1.96,
     draw: 8.5,
 };
 

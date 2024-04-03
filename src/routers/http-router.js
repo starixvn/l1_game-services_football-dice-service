@@ -23,15 +23,15 @@ export default class HttpRouter extends Table.Routers.TableHttpRouter {
 
                 return;
             }
-
+            const roundId = params.roundId ?? this.gameData.roundId;
             this.logService.logWarning(`receives a result cheating call with the result as ${JSON.stringify(params.result)}.`);
 
-            this.gameData.settlementResultFromAdmin = { result: params.result, roundId: params.roundId ?? this.gameData.roundId };
+            this.gameData.settlementResultFromAdmin = { result: params.result, roundId };
 
-            res.send(true);
+            res.send({ isSuccessful: true, roundId });
         } catch (error) {
             this.logService.logError(error);
-            res.send(false);
+            res.send({ isSuccessful: false });
         }
     }
 }
