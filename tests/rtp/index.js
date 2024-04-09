@@ -10,14 +10,15 @@ const betChoices = ["home", "away", "draw"];
 const odds = {
     home: 1.96,
     away: 1.96,
-    draw: 8.5,
+    draw: 8,
+    draw12: 50,
 };
 
 const generateClientSeeds = () => {
     return [generateSeed(), generateSeed(), generateSeed(), generateSeed(), generateSeed()];
 };
 
-const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
+const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000, choices = betChoices) => {
     let max = 0;
     let maxwin = 0;
     let diceValStat = {
@@ -33,6 +34,7 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
         home: 0,
         draw: 0,
         away: 0,
+        draw12: 0,
     };
     let totalWinAmount = 0;
     let winCount = 0;
@@ -41,14 +43,14 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
         home: {},
         away: {},
         draw: {},
+        draw12: {},
     };
     let curChoice = "";
     let curStreak = 0;
 
     for (let index = 0; index < numberOfRuns; index++) {
         const betAmount = chance.pickone([1, 5, 10, 50, 100]);
-        const choice = chance.weighted(betChoices, [45, 45, 10]);
-        //const choice = "away";
+        const choice = chance.pickone(choices);
         totalBetAmount += betAmount;
 
         const clientSeeds = generateClientSeeds();
@@ -66,10 +68,14 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
         });
 
         const winningChoice = Object.keys(settlementResult).find((choice) => settlementResult[choice]);
-        resultStat[winningChoice]++;
+        Object.keys(settlementResult).forEach((key) => settlementResult[key] && resultStat[key]++);
 
         if (choice === winningChoice) {
-            const winAmount = odds[choice] * betAmount;
+            let winAmount = odds[choice] * betAmount;
+
+            if (settlementResult.draw12) {
+                winAmount = odds["draw12"] * betAmount;
+            }
 
             winCount++;
             totalWinAmount += winAmount;
@@ -97,4 +103,7 @@ const exportRtpResult = (randomMode = 1, numberOfRuns = 1_000_000) => {
     console.log({ rtp: totalWinAmount / totalBetAmount });
 };
 
-exportRtpResult(1);
+const randomMode = 1;
+const rounds = 1_0_000;
+
+exportRtpResult(randomMode, rounds, ["draw"]);

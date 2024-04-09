@@ -3,7 +3,8 @@ import { Table } from "sc-game-base";
 export default class SettleGameRoundConsumer extends Table.EventConsumers.TableSettleGameRoundConsumer {
     calculateBetResult(settlementResult, bet, odds) {
         if (settlementResult.draw) {
-            const winAmount = bet.draw * odds.draw;
+            const drawOdds = settlementResult.draw12 ? odds.draw12 : odds.draw;
+            const winAmount = bet.draw * drawOdds;
 
             return {
                 totalBetAmount: bet.totalAmount,

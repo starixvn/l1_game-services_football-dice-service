@@ -52,15 +52,19 @@ describe("resultHelper", () => {
         test.each([
             [
                 { home: [6, 6], away: [5, 6] },
-                { home: true, away: false, draw: false },
+                { home: true, away: false, draw: false, draw12: false },
             ],
             [
                 { home: [3, 4], away: [2, 6] },
-                { home: false, away: true, draw: false },
+                { home: false, away: true, draw: false, draw12: false },
             ],
             [
                 { home: [2, 3], away: [3, 2] },
-                { home: false, away: false, draw: true },
+                { home: false, away: false, draw: true, draw12: false },
+            ],
+            [
+                { home: [6, 6], away: [6, 6] },
+                { home: false, away: false, draw: true, draw12: true },
             ],
         ])("should return correct settlement result for scenario %j", (result, expected) => {
             // Act

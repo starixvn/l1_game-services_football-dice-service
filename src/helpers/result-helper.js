@@ -32,6 +32,7 @@ const getSettlementResult = (result) => {
         home: homeVal > awayVal,
         away: awayVal > homeVal,
         draw: homeVal === awayVal,
+        draw12: homeVal === awayVal && homeVal === 12,
     };
 };
 
