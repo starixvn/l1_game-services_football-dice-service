@@ -50,31 +50,5 @@ describe("RunningRoundInfoPublisher", () => {
                 userBetPercentage: { home: 40, draw: 30, away: 30 },
             });
         });
-
-        it("should not publish user bet percentage if all bets are zero", () => {
-            // Arrange
-            runningRoundInfoPublisher.publishToAllUsers = jest.fn();
-            runningRoundInfoPublisher.gameData = { betCount: { home: 0, draw: 0, away: 0 } };
-
-            // Act
-            runningRoundInfoPublisher.publishBetPercentage();
-
-            // Assert
-            expect(runningRoundInfoPublisher.publishToAllUsers).not.toHaveBeenCalled();
-        });
-    });
-
-    describe("calculateBetPercentage", () => {
-        it("should calculate bet percentage correctly", () => {
-            // Arrange
-            const betCount = { home: 4, draw: 3, away: 3 };
-            const expectedBetPercentage = { home: 40, draw: 30, away: 30 };
-
-            // Act
-            const result = runningRoundInfoPublisher.calculateBetPercentage(betCount);
-
-            // Assert
-            expect(result).toEqual(expectedBetPercentage);
-        });
     });
 });

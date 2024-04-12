@@ -1,4 +1,5 @@
 import { Core } from "sc-game-base";
+import { calculateBetPercentage } from "../helpers/bet-percentage";
 
 export class RunningRoundInfoPublisher extends Core.BaseEventPublishers.RunningRoundInfoPublisher {
     publish() {
@@ -9,21 +10,7 @@ export class RunningRoundInfoPublisher extends Core.BaseEventPublishers.RunningR
 
     publishBetPercentage() {
         const { betCount } = this.gameData;
-        const choices = Object.keys(betCount);
 
-        if (choices.some((choice) => betCount[choice])) {
-            const userBetPercentage = this.calculateBetPercentage(betCount);
-            this.publishToAllUsers({ userBetPercentage });
-        }
-    }
-
-    calculateBetPercentage(betCount) {
-        const totalBetCount = Object.values(betCount).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-
-        const home = parseInt(((betCount.home ?? 0) * 100) / totalBetCount);
-        const draw = parseInt(((betCount.draw ?? 0) * 100) / totalBetCount);
-        const away = 100 - home - draw;
-
-        return { home, draw, away };
+        this.publishToAllUsers({ userBetPercentage: calculateBetPercentage(betCount) });
     }
 }

@@ -13,8 +13,8 @@ export default class SettleGameRoundConsumer extends Table.EventConsumers.TableS
                 totalLost: 0,
                 winningByChoices: { draw: winAmount },
             };
-        } else {
-            return super.calculateBetResult(settlementResult, bet, odds);
         }
+
+        return super.calculateBetResult(settlementResult, bet, odds);
     }
 }
