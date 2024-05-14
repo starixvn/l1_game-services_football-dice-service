@@ -27,10 +27,7 @@
         "indent": 4
     },
     "dependencies": {
-        "sc-game-base": "5.0.1-beta.24"
-    },
-    "resolutions": {
-        "sc-game-base": "5.0.1-beta.24"
+        "sc-game-base": "5.1.0"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.12.11",
@@ -47,7 +44,7 @@
         "jest-micro-auto-stub": "^1.0.8",
         "jest-sonar-reporter": "^2.0.0",
         "nodemon": "^2.0.4",
-        "sc-game-service-integration-utils": "2.1.0"
+        "sc-game-service-integration-utils": "2.2.0"
     },
     "husky": {
         "hooks": {
