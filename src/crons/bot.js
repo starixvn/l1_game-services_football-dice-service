@@ -1,5 +1,4 @@
 import { Table } from "sc-game-base";
-import Chance from "chance";
 import { botChips } from "../constants";
 
 export default class Bot extends Table.Crons.TableGameBot {
