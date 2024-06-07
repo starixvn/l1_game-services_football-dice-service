@@ -4,7 +4,6 @@ export default {
     durations: {
         wholeRound: 44,
         placingBets: 20,
-        mergeClientSeeds: 0,
         lockingBet: 3,
     },
     choices: ["home", "away", "draw"],
