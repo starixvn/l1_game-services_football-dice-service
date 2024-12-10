@@ -36,7 +36,7 @@ export default {
         env: "LOCAL_1",
     },
     authenticateSettings: {
-        url: "http://l1_auth_api_local_1:5000",
+        url: "http://l1-auth-api-local1-service:5000",
         id: "game-services",
         secret: "gameservices@20luminet&",
         requestTimeout: 10000,
@@ -44,7 +44,7 @@ export default {
         audiences: ["api", "admin-api"],
     },
     userServiceSettings: {
-        url: "http://l1_user_service_local_1:5000",
+        url: "http://l1-user-service-local1-service:5000",
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     metrics: {
@@ -53,7 +53,7 @@ export default {
     },
     enableMsgpackParser: false,
     gameManagementApiSettings: {
-        BASE: "http://l1_game_management_service_local_1:5000",
+        BASE: "http://l1-game-management-service-local1-service:5000",
     },
     otel: {
         system: "SG",
