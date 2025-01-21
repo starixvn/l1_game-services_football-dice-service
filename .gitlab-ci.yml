@@ -7,5 +7,5 @@ variables:
 
 include:
   - project: "ci/core-cicd"
-    ref: runner_k8s
+    ref: main
     file: "luminet.gitlab-ci.yml"
